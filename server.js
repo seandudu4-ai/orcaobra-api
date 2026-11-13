@@ -145,7 +145,7 @@ async function gerarComGemini(prompt, arquivos) {
     if (!arquivo.base64) continue;
     parts.push({ inlineData: { mimeType: arquivo.mime || 'image/jpeg', data: arquivo.base64 } });
   }
-  const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + encodeURIComponent(chave), {
+  const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=' + encodeURIComponent(chave), {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: 'application/json' } }),
